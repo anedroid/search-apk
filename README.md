@@ -12,6 +12,7 @@ Aplikacja została napisana w czystym PHP, zawiera także niewielką ilość Jav
 /
 ├── css
 │   └── style.css - Arkusz stylów
+├── icons - Użyte ikony
 ├── js
 │   ├── autocomplete.js - Autouzupełnianie
 │   └── autosubmit.js - Odświeżenie bez ponownego wysyłania formularza
