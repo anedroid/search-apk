@@ -7,14 +7,19 @@ class App {
 		if (!in_array($sort, self::SORT_WHITELIST)) $sort = "label";
 		if ($limit > 50) $limit = 50;
 
-		$db = new PDO("sqlite:database.db");
-		$stmt = $db->prepare("select * from items where name like :query or label like :query order by $sort");
+		if ($query !== "") {
+			$db = new PDO("sqlite:database.db");
+			$stmt = $db->prepare("select * from items where name like :query or label like :query order by $sort");
+			
+			$stmt->bindValue(":query", "%" . str_replace("%", "[%]", $query) . "%");
+			
+			$stmt->execute();
+			
+			$results = $stmt->fetchAll();
+		} else {
+			$results = [];
+		}
 		
-		$stmt->bindValue(":query", "%" . str_replace("%", "[%]", $query) . "%");
-		
-		$stmt->execute();
-		
-		$results = $stmt->fetchAll();
 		$data["count"] = count($results);
 		$data["results"] = array_slice($results, $offset*$limit, $limit);
 

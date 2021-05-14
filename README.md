@@ -10,6 +10,12 @@ Aplikacja została napisana w czystym PHP, zawiera także niewielką ilość Jav
 ## Opis plików
 ```
 /
+├── css
+│   └── style.css - Arkusz stylów
+├── js
+│   ├── autocomplete.js - Autouzupełnianie
+│   └── autosubmit.js - Odświeżenie bez ponownego wysyłania formularza
+├── changelog.md - Lista zmian
 ├── database.db - Przykładowa baza danych SQLite
 ├── index.php - Aplikacja
 ├── README.md - Opis repozytorium
